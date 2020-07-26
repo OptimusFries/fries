@@ -1,0 +1,383 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const Discord = require("discord.js");
+const { prefix, token, giphyToken } = require('./config.json');
+const client = new Discord.Client();
+const ytdl = require("ytdl-core");
+  DisTube = require("distube");
+  config = {
+    prefix: "|",
+    token:
+      process.env.TOKEN ||
+      "NzM1NzE2OTc3MjgwMTU1NzQ4.XxkYsw.2w6mQYRwvyzX_1ts2Bap2LJHBgw",
+  };
+
+
+
+
+var version = "1.0.0";
+var servers = {};
+
+client.login(token);
+
+client.once('ready', () => {
+  console.log('Ready to work with!');
+  client.user.setActivity('Pondering Its Existence.')
+})
+
+var GphApiClient = require('giphy-js-sdk-core')
+giphy = GphApiClient(giphyToken)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Admin Commands From Line 17.
+//The Bot is already Admin but cant remove people in roles higher than itself.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+client.on('message', message => {
+    //console.log(message.content);
+
+    if(message.content.startsWith(`${prefix}kick`)) {
+        //message.channel.send("kick")
+
+        let member = message.mentions.members.first();
+        member.kick().then((member) => {
+            message.channel.send(":wave: " + member.displayName + " has been kicked!")
+        })
+    }
+})
+
+client.on('message', message => {
+    //console.log(message.content);
+
+    if(message.content.startsWith(`${prefix}ban`)) {
+        //message.channel.send("ban")
+
+        let member = message.mentions.members.first();
+        member.ban().then((member) => {
+            message.channel.send(":wave: " + member.displayName + " has been banned!")
+        })
+    }
+})
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//From Line 46 the basic read-response messages begin.
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+client.on('message', message => {
+    //console.log(message.content);
+
+    if(message.content.startsWith(`${prefix}hi`)) {
+        message.channel.send("Hello There! :smile: ")
+    }
+})
+
+client.on('message', message => {
+    //console.log(message.content);
+
+    if(message.content.startsWith(`${prefix}hello`)) {
+        message.channel.send("Hello There! :smile: ")
+    }
+})
+
+client.on('message', message => {
+    //console.log(message.content);
+
+    if(message.content.startsWith(`${prefix}Hi`)) {
+        message.channel.send("Hello There! :smile: ")
+    }
+})
+
+client.on('message', message => {
+    //console.log(message.content);
+
+    if(message.content.startsWith(`${prefix}Hello`)) {
+        message.channel.send("Hello There! :smile: ")
+    }
+})
+
+client.on('message', message => {
+    //console.log(message.content);
+
+    if(message.content.startsWith(`${prefix}cya`)) {
+        message.channel.send("Leaving Already? :frowning:")
+    }
+})
+
+client.on('message', message => {
+    //console.log(message.content);
+
+    if(message.content.startsWith(`${prefix}Cya`)) {
+        message.channel.send("Leaving Already? :frowning:")
+    }
+})
+
+client.on('message', message => {
+    //console.log(message.content);
+
+    if(message.content.startsWith(`${prefix}peaceout`)) {
+        message.channel.send("Leaving Already? :frowning:")
+    }
+})
+
+client.on('message', message => {
+    //console.log(message.content);
+
+    if(message.content.startsWith(`${prefix}absbigsucc`)) {
+        message.channel.send("true :thumbsup: ")
+    }
+})
+
+client.on('message', message => {
+    //console.log(message.content);
+
+    if (message.content.startsWith(`${prefix}test`)) {
+        message.channel.send("Works Fine!")
+    }
+})
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//     **Insert Help page** (lol)
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+client.on('message', message => {
+    //console.log(message.content);
+
+    if(message.content.startsWith(`${prefix}RandomGif`)) {
+        //message.channel.send("RandomGif")
+
+          giphy.search('gifs',  {"q": "random"})
+              .then((response) => {
+                  var totalResponses = response.data.length;
+                  var responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses ;
+                  var responseFinal = response.data[responseIndex];
+
+                  message.channel.send("Here's Some Random Gif I Found On The Streets:", {
+                      files: [responseFinal.images.fixed_height.url]
+                  })
+              })
+    }
+})
+
+client.on('message', message => {
+    //console.log(message.content);
+
+    if(message.content.startsWith(`${prefix}randomgif`)) {
+        //message.channel.send("RandomGif")
+
+          giphy.search('gifs',  {"q": "random"})
+              .then((response) => {
+                  var totalResponses = response.data.length;
+                  var responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses ;
+                  var responseFinal = response.data[responseIndex];
+
+                  message.channel.send("Here's Some Random Gif I Found On The Streets:", {
+                      files: [responseFinal.images.fixed_height.url]
+                  })
+              })
+    }
+})
+
+client.on('message', message => {
+    //console.log(message.content);
+
+    if(message.content.startsWith(`${prefix}Randomgif`)) {
+        //message.channel.send("RandomGif")
+
+          giphy.search('gifs',  {"q": "random"})
+              .then((response) => {
+                  var totalResponses = response.data.length;
+                  var responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses ;
+                  var responseFinal = response.data[responseIndex];
+
+                  message.channel.send("Here's Some Random Gif I Found On The Streets:", {
+                      files: [responseFinal.images.fixed_height.url]
+                  })
+              })
+    }
+})
+
+client.on('message', message => {
+    //console.log(message.content);
+
+    if(message.content.startsWith(`${prefix}randomgif`)) {
+        //message.channel.send("RandomGif")
+
+          giphy.search('gifs',  {"q": "random"})
+              .then((response) => {
+                  var totalResponses = response.data.length;
+                  var responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses ;
+                  var responseFinal = response.data[responseIndex];
+
+                  message.channel.send("Here's Some Random Gif I Found On The Streets:", {
+                      files: [responseFinal.images.fixed_height.url]
+                  })
+              })
+    }
+})
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Music API starts here.
+//  *UC*
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const distube = new DisTube(client, { searchSongs: true, emitNewSongOnly: true, highWaterMark: 1 << 25 });
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+client.on("message", async (message) => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(config.prefix)) return;
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift();
+
+  if (command == "play")
+    distube.play(message, args.join(" "));
+
+  if (command == "stop") {
+    distube.stop(message);
+    message.channel.send("Stopped the music!");
+  }
+
+  if (command == "bye") {
+    distube.stop(message);
+    message.channel.send("Bye!");
+  }
+
+  if (command == "Bye") {
+    distube.stop(message);
+    message.channel.send("Bye!");
+  }
+
+  if (command == "peace") {
+    distube.stop(message);
+    message.channel.send("Bye!");
+  }
+
+  if (command == "queue") {
+    let queue = distube.getQueue(message);
+    message.channel.send('Current queue:\n' + queue.songs.map((song, id) =>
+      `**${id + 1}**. ${song.name} - \`${song.formattedDuration}\``
+    ).join("\n"));
+  }
+
+  if ([`3d`, `bassboost`, `echo`, `karaoke`, `nightcore`, `vaporwave`].includes(command)) {
+    let filter = distube.setFilter(message, command);
+    message.channel.send("Current queue filter: " + (filter || "Off"));
+  }
+});
+
+client.on("message", (message) => {
+  if (!message.content.startsWith(config.prefix)) return;
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift();
+  if (command == "jump")
+    distube
+      .jump(message, parseInt(args[0]))
+      .catch((err) => message.channel.send("Invalid song number."));
+});
+
+client.on("message", (message) => {
+  if (!message.content.startsWith(config.prefix)) return;
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift();
+  if (command == "playSkip") distube.playSkip(message, args.join(" "));
+});
+
+client.on("message", (message) => {
+  if (!message.content.startsWith(config.prefix)) return;
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift();
+  if (
+    [`3d`, `bassboost`, `echo`, `karaoke`, `nightcore`, `vaporwave`].includes(
+      command
+    )
+  ) {
+    let filter = distube.setFilter(message, command);
+    message.channel.send("Current queue filter: " + (filter || "Off"));
+  }
+});
+
+client.on("message", (message) => {
+  if (!message.content.startsWith(config.prefix)) return;
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift();
+  if (command == "repeat") {
+    let mode = distube.setRepeatMode(message, parseInt(args[0]));
+    mode = mode ? (mode == 2 ? "Repeat queue" : "Repeat song") : "Off";
+    message.channel.send("Set repeat mode to `" + mode + "`");
+  }
+});
+
+client.on("message", (message) => {
+  if (!message.content.startsWith(config.prefix)) return;
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift();
+  if (command == "volume") distube.setVolume(message, args[0]);
+});
+
+client.on("message", (message) => {
+  if (!message.content.startsWith(config.prefix)) return;
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift();
+  if (command == "shuffle") distube.shuffle(message);
+});
+
+client.on("message", (message) => {
+  if (!message.content.startsWith(config.prefix)) return;
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift();
+  if (command == "skip") distube.skip(message);
+});
+
+client.on("message", (message) => {
+  if (!message.content.startsWith(config.prefix)) return;
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift();
+  if (command == "autoplay") {
+    let mode = distube.toggleAutoplay(message);
+    message.channel.send(
+      "Set autoplay mode to `" + (mode ? "On" : "Off") + "`"
+    );
+  }
+});
+
+distube.on("empty", (message) =>
+  message.channel.send("Channel is empty. Leaving the channel")
+);
+
+distube.on("error", (message, err) =>
+  message.channel.send("An error encountered: " + err)
+);
+
+distube.on("finish", (message) =>
+  message.channel.send("No more songs in queue!")
+);
+
+distube.on("noRelated", (message) =>
+  message.channel.send("Can't find related video to play. Stopped playing music.")
+);
+
+const status = (queue) => `Volume: \`${queue.volume}%\` | Filter: \`${queue.filter || "Off"}\` | Loop: \`${queue.repeatMode ? queue.repeatMode == 2 ? "All Queue" : "This Song" : "Off"}\` | Autoplay: \`${queue.autoplay ? "On" : "Off"}\``;
+
+distube
+    .on("playSong", (message, queue, song) => message.channel.send(
+        `Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}\n${status(queue)}`
+    ))
+    .on("addSong", (message, queue, song) => message.channel.send(
+        `Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`
+    ))
+    .on("playList", (message, queue, playlist, song) => message.channel.send(
+        `Play \`${playlist.title}\` playlist (${playlist.total_items} songs).\nRequested by: ${song.user}\nNow playing \`${song.name}\` - \`${song.formattedDuration}\`\n${status(queue)}`
+    ))
+    .on("addList", (message, queue, playlist) => message.channel.send(
+        `Added \`${playlist.title}\` playlist (${playlist.total_items} songs) to queue\n${status(queue)}`
+    ))
+    
+    .on("searchResult", (message, result) => {
+        let i = 0;
+        message.channel.send(`**Choose an option from below**\n${result.map(song => `**${++i}**. ${song.title} - \`${song.duration}\``).join("\n")}\n*Enter anything else or wait 60 seconds to cancel*`);
+    })
+    
+    .on("searchCancel", (message) => message.channel.send(`Searching canceled`))
+    .on("error", (message, err) => message.channel.send(
+        "An error encountered: " + err
+    ));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
